@@ -2,7 +2,6 @@ import argparse
 
 import matplotlib.pyplot as plt
 import torch
-
 from src.data.make_dataset import CorruptMnist
 from src.models.model import MyAwesomeModel
 

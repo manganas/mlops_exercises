@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import torch
 from sklearn.manifold import TSNE
-
 from src.data.make_dataset import CorruptMnist
 from src.models.model import MyAwesomeModel
 

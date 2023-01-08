@@ -2,7 +2,6 @@ import argparse
 
 import numpy as np
 import torch
-
 from src.models.model import MyAwesomeModel
 
 

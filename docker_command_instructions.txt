@@ -1,0 +1,4 @@
+1. Create dockerfiles.
+2. docker build -f <dockerfile> . -t <Repository_name>:<Tag>
+3. docker run --name <ps_name> <Repo)name>:<Tag>
+4. docker run -it --entrypoint sh {image_name}:{image_name} # If in doubt what is happening
