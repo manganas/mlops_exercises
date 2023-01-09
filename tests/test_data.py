@@ -1,9 +1,9 @@
 from src.data.make_dataset import CorruptMnist
 from pathlib import Path
-from tests import _PROJECT_ROOT
+from tests import _PATH_DATA
 
-in_folder = _PROJECT_ROOT + '/data'+'/raw'
-out_folder = _PROJECT_ROOT + '/data'+'/processed'
+in_folder = _PATH_DATA+'/raw'
+out_folder = _PATH_DATA+'/processed'
 
 
 N_train = 40000 # corrupted v2 : 40000, otherwise 25000
