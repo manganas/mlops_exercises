@@ -21,4 +21,3 @@ repos:
         name: flake8
         alias: flake8
         files: .
-
