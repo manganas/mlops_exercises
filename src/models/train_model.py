@@ -17,7 +17,9 @@ def training() -> None:
     model = MyAwesomeModel()
     model = model.to(device)
 
-    train_set = CorruptMnist(train=True, in_folder="data/raw", out_folder="data/processed")
+    train_set = CorruptMnist(
+        train=True, in_folder="data/raw", out_folder="data/processed"
+    )
     dataloader = torch.utils.data.DataLoader(train_set, batch_size=128)
     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
     criterion = torch.nn.CrossEntropyLoss()

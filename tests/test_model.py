@@ -28,4 +28,3 @@ def test_on_wrong_shape():
         ValueError, match="Expected each sample to have dimensions \[1,28,28\]"
     ):
         model(torch.randn(1, 1, 27, 27))
-

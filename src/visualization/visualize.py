@@ -14,7 +14,9 @@ def tsne_embedding_plot() -> None:
     args = parser.parse_args()
     print(args)
 
-    train_set = CorruptMnist(train=True, in_folder="data/raw", out_folder="data/processed")
+    train_set = CorruptMnist(
+        train=True, in_folder="data/raw", out_folder="data/processed"
+    )
     dataloader = torch.utils.data.DataLoader(train_set, batch_size=128)
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
@@ -40,7 +42,9 @@ def tsne_embedding_plot() -> None:
     embeddings_2d = tsne.fit_transform(embeddings)
 
     for i in np.unique(labels):
-        plt.scatter(embeddings_2d[labels == i, 0], embeddings_2d[labels == i, 1], label=str(i))
+        plt.scatter(
+            embeddings_2d[labels == i, 0], embeddings_2d[labels == i, 1], label=str(i)
+        )
     plt.legend()
     plt.savefig(f"reports/figures/2d_tsne_embedding.png")
 

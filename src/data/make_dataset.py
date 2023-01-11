@@ -57,7 +57,9 @@ class CorruptMnist(Dataset):
     def load_preprocessed(self) -> None:
         split = "train" if self.train else "test"
         try:
-            self.data, self.targets = torch.load(f"{self.out_folder}/{split}_processed.pt")
+            self.data, self.targets = torch.load(
+                f"{self.out_folder}/{split}_processed.pt"
+            )
         except:
             raise ValueError("No preprocessed files found")
 
@@ -69,12 +71,18 @@ class CorruptMnist(Dataset):
                     wget.download(
                         f"https://raw.githubusercontent.com/SkafteNicki/dtu_mlops/main/data/corruptmnist/train_{file_idx}.npz"
                     )
-                    shutil.move(f"train_{file_idx}.npz", f"{self.in_folder}/train_{file_idx}.npz")
+                    shutil.move(
+                        f"train_{file_idx}.npz",
+                        f"{self.in_folder}/train_{file_idx}.npz",
+                    )
                 if file_idx > 4 and f"train_{file_idx}.npz" not in files:
                     wget.download(
                         f"https://raw.githubusercontent.com/SkafteNicki/dtu_mlops/main/data/corruptmnist_v2/train_{file_idx}.npz"
                     )
-                    shutil.move(f"train_{file_idx}.npz", f"{self.in_folder}/train_{file_idx}.npz")
+                    shutil.move(
+                        f"train_{file_idx}.npz",
+                        f"{self.in_folder}/train_{file_idx}.npz",
+                    )
         else:
             if "test.npz" not in files:
                 wget.download(
@@ -99,10 +107,14 @@ def main(input_filepath: str, output_filepath: str) -> None:
     logger = logging.getLogger(__name__)
     logger.info("making final data set from raw data")
 
-    train = CorruptMnist(train=True, in_folder=input_filepath, out_folder=output_filepath)
+    train = CorruptMnist(
+        train=True, in_folder=input_filepath, out_folder=output_filepath
+    )
     train.save_preprocessed()
 
-    test = CorruptMnist(train=False, in_folder=input_filepath, out_folder=output_filepath)
+    test = CorruptMnist(
+        train=False, in_folder=input_filepath, out_folder=output_filepath
+    )
     test.save_preprocessed()
 
     print(train.data.shape)
