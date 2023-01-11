@@ -2,6 +2,8 @@
 __pycache__/
 *.py[cod]
 
+./data
+
 # C extensions
 *.so
 
@@ -87,3 +89,4 @@ target/
 
 # Mypy cache
 .mypy_cache/
+/data
