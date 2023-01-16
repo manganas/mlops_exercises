@@ -1,0 +1,5 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/pelagic-river-374308/dtumlops', '.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/pelagic-river-374308/dtumlops']
