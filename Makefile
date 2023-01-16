@@ -53,13 +53,15 @@ else
 	aws s3 sync data/ s3://$(BUCKET)/data/ --profile $(PROFILE)
 endif
 
-## Download Data from S3
-sync_data_from_s3:
-ifeq (default,$(PROFILE))
-	aws s3 sync s3://$(BUCKET)/data/ data/
-else
-	aws s3 sync s3://$(BUCKET)/data/ data/ --profile $(PROFILE)
-endif
+## Create a gc vm for training
+create_vm:
+	gcloud compute instances create test-make-vm \
+	--zone europe-west1-b \
+	--image-family=pytorch-latest-gpu \
+	--image-project=deeplearning-platform-release \
+	--accelerator="type=nvidia-tesla-k80,count=1" \
+	--metadata="install-nvidia-driver=True" \
+	--maintenance-policy TERMINATE
 
 ## Set up python interpreter environment
 create_environment:

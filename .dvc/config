@@ -1,5 +1,7 @@
 [core]
-    remote = storage
+    remote = remote_storage
     analytics = false
 ['remote "storage"']
     url = gdrive://1B9wqOvyU6QtgsyZXoKnBDTvnI7jGDvxt
+['remote "remote_storage"']
+    url = gs://mlops-course-mnist/
