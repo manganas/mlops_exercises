@@ -83,7 +83,10 @@ def train_and_test():
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+    print(device)
+
     model = FashionCNN()
+
     model = nn.DataParallel(model, device_ids=[0, 1])
 
     import time
@@ -91,7 +94,8 @@ def train_and_test():
     start = time.time()
 
     n_reps = 10
-    batch = next(iter(train_loader))
+    batch = next(iter(train_loader))[0]
+
     for _ in range(n_reps):
         out = model(batch)
 
