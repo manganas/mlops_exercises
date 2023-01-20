@@ -14,6 +14,6 @@ RUN pip install fastapi
 RUN pip install pydantic
 RUN pip install uvicorn
 
-COPY simple_fastapi_app.py simple_fastapi_app.py
+COPY app/api.py api.py
 
-CMD exec uvicorn simple_fastapi_app:app --port $PORT --host 0.0.0.0 --workers 1
+CMD exec uvicorn api:app --port $PORT --host 0.0.0.0 --workers 1
